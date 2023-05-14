@@ -1,0 +1,17 @@
+.nav{
+  margin: 20px;
+  min-height: 40px;
+  &--list {
+    width: 300px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    &__item {
+      padding: 5px;
+      &:hover {
+        cursor: pointer;
+        border-bottom: solid 1px darkgoldenrod;
+      }
+    }
+  }
+}
