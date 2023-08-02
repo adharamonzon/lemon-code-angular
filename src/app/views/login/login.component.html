@@ -1,1 +1,26 @@
-<p>login works!</p>
+<main>
+  <div class="alert">
+    <p class="alert--text">Username: curso</p>
+    <p class="alert--text">Password: angular</p>
+  </div>
+  <mat-card class="card">
+    <mat-card-content>
+      <mat-card-header>Welcome! Login to access the app</mat-card-header>
+      <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" />
+        </mat-form-field>
+        <p *ngIf="!isLogged" class="error">{{ loginErr }}</p>
+        <div class="btn">
+          <button mat-raised-button type="submit">Login</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</main>
