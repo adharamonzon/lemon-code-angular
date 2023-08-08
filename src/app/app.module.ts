@@ -16,6 +16,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { PrivateHeaderComponent } from './layout/private-header/private-header.component';
+import { GaleriaComponent } from './views/galeria/galeria.component';
+import { CrudComponent } from './views/crud/crud.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,11 @@ import { PrivateHeaderComponent } from './layout/private-header/private-header.c
     HomeComponent,
     AboutComponent,
     DashboardComponent,
-    PrivateHeaderComponent
+    PrivateHeaderComponent,
+    GaleriaComponent,
+    CrudComponent,
+    ProfileComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +44,7 @@ import { PrivateHeaderComponent } from './layout/private-header/private-header.c
     MatCardModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

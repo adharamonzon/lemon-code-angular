@@ -1,14 +1,15 @@
-<nav class="nav">
-  <ul class="nav--list">
-    <li class="nav--list__item" routerLink="/dashboard" routerLinkActive="active-link">Dashboard</li>
-    <li class="nav--list__item" routerLink="/users" routerLinkActive="active-link">Users</li>
-    <li class="nav--list__item" routerLink="/providers" routerLinkActive="active-link">Providers</li>
-    <li class="nav--list__item" routerLink="/customers" routerLinkActive="active-link">Customers</li>
-    <li class="nav--list__item" routerLink="/profile" routerLinkActive="active-link">Profile</li>
-  </ul>
-</nav>
+<div class="header">
+  <nav class="nav">
+    <ul class="nav--list">
+      <li class="nav--list__item" routerLink="/dashboard" routerLinkActive="active-link">Dashboard</li>
+      <li class="nav--list__item" routerLink="/galeria" routerLinkActive="active-link">galeria</li>
+      <li class="nav--list__item" routerLink="/crud" routerLinkActive="active-link">CRUD</li>
+      <li class="nav--list__item" routerLink="/profile" routerLinkActive="active-link">Profile</li>
+    </ul>
+  </nav>
 
-<main>
-  <p>Hola, username</p>
-  <button>Logout</button>
-</main>
+  <main class="info">
+    <p class="info--name">Hola, username</p>
+    <button class="info--btn btn" type="button" (click)="logout()">Logout</button>
+  </main>
+</div>
