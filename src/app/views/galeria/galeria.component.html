@@ -1,1 +1,37 @@
-<p>galeria works!</p>
+<section class="selectedImg">
+  <!-- imagen seleccionada -->
+  <h2 class="selectedImg--title">{{ selectedImg.title }}</h2>
+  <div class="selectedImg--imgContainer">
+    <img class="selectedImg--imgContainer__img" [src]="selectedImg.url" alt="Imagen seleccionada" />
+  </div>
+</section>
+<nav class="galeryNav">
+  <ul class="galeryNav--list">
+    <li class="galeryNav--list__item">
+      <button class="galeryNav--list__btn" [disabled]="selectedImg.id === 1" (click)="action('previous')" type="button">Anterior</button>
+    </li>
+    <li class="galeryNav--list__item">
+      <button class="galeryNav--list__btn" [disabled]="selectedImg.id === 8" (click)="action('next')" type="button">Siguiente</button>
+    </li>
+    <li class="galeryNav--list__item">
+      <button class="galeryNav--list__btn" type="button">Aumentar</button>
+    </li>
+    <li class="galeryNav--list__item">
+      <button class="galeryNav--list__btn" type="button">Disminuir</button>
+    </li>
+    <li class="galeryNav--list__item">
+      <button class="galeryNav--list__btn" type="button">Play</button>
+    </li>
+    <li class="galeryNav--list__item">
+      <button class="galeryNav--list__btn" type="button">Stop</button>
+    </li>
+  </ul>
+</nav>
+<section class="minGalery">
+  <!-- miniatura de imagenes -->
+  <ul class="minGalery--list">
+    <li *ngFor="let img of imgList; index" class="minGalery--list__item" [ngClass]="isSelected(img)">
+      <img [src]="img.url" alt="img/title" class="img" (click)="selectImage(img)" />
+    </li>
+  </ul>
+</section>

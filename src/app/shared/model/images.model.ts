@@ -1,4 +1,5 @@
 export interface Images {
   id: number,
-  url: string
+  url: string,
+  title: string
 }
