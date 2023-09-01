@@ -1,5 +1,5 @@
 .selectedImg {
-  height: 57vh;
+  height: 52vh;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -8,7 +8,7 @@
     margin-bottom: 10px;
   }
   &--imgContainer{
-    width: 500px;
+    width: 450px;
     height: auto;
     &__img{
       width: 100%;
@@ -30,7 +30,7 @@
     display: flex;
     justify-content: space-around;
     &__btn {
-      border: 2px solid darkcyan;
+      border: 2px solid darkgoldenrod;
       background-color: white;
       border-radius: 3px;
       padding: 4px 8px;
@@ -39,7 +39,7 @@
       height: 45px;
       font-size: 16px;
       &:hover {
-        background-color: darkcyan;
+        background-color: darkgoldenrod;
         color: white;
         transition: all .7s ease;
       }
@@ -72,5 +72,5 @@
 }
 
 .isSelected {
-  border: solid 8px darkcyan;
+  border: solid 8px darkgoldenrod;
 }

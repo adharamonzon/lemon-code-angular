@@ -100,29 +100,26 @@ export class GaleriaComponent  implements OnInit{
       document.getElementById('image')!.style.width = `${growSize}px`;
       document.getElementById('selectedImgSection')!.style.height = `${growSize}px`
     } else if (action === 'play' || action === 'stop') {
-      const stopAction = action === 'stop' ? true : false;
-      this.interval = setInterval(() => {
-        this.running = true;
-        newId = this.selectedImg.id +1;
-        if (newId <= 8) {
-          newImg = this.imgList.find((img) => img.id === newId);
-          newImg ? this.selectedImg = newImg : this.selectedImg;
-        } else if (newId >= 9) {
-          this.selectedImg = {
-            id: 1,
-            url: 'assets/images/image1.jpg',
-            title: 'Puerto nublado',
-            size: 500
+      if (action === 'play') {
+        this.interval = setInterval(() => {
+          this.running = true;
+          newId = this.selectedImg.id +1;
+          if (newId <= 8) {
+            newImg = this.imgList.find((img) => img.id === newId);
+            newImg ? this.selectedImg = newImg : this.selectedImg;
+          } else if (newId >= 9) {
+            this.selectedImg = {
+              id: 1,
+              url: 'assets/images/image1.jpg',
+              title: 'Puerto nublado',
+              size: 500
+            }
           }
-        }
-        if (stopAction) {
-          console.log('hay click seores')
-          clearInterval(this.interval);
-
-        }
-      }, 3000)
-    } else {
-      clearInterval(this.interval)
+        }, 3000)
+      } else {
+        this.running = false;
+        clearInterval(this.interval);
+      }
     }
     newImg ? this.selectedImg = newImg : this.selectedImg;
   }
