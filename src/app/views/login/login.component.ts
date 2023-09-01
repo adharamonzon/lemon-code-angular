@@ -38,6 +38,7 @@ export class LoginComponent {
       this.authService.login(this.form.value.name, this.form.value.password).subscribe({
         next: (resp) => {
           if (resp === true) {
+            this.user ? this.authService.userEmitChange(this.user) : '';
             this.router.navigateByUrl('/dashboard')
           }
         }

@@ -24,14 +24,17 @@
     border-bottom: solid 2px darkcyan;
   } 
   .info {
-    width: 250px;
+    width: 350px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    &--name {
+      font-weight: bold;
+    }
     &--btn {
       border: solid 2px darkcyan;
       border-radius: 5px;
-      padding: 2px;
+      padding: 9px;
       background-color: white;
       &:hover{ 
         background-color: darkcyan;

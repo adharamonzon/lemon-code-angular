@@ -1,5 +1,5 @@
-<!-- <app-public-header></app-public-header> -->
-<app-private-header></app-private-header>
+<app-public-header *ngIf="publicHeader"></app-public-header>
+<app-private-header *ngIf="!publicHeader"></app-private-header>
 <div class="main">
   <router-outlet></router-outlet>
 </div>

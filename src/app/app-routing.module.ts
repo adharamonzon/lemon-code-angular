@@ -9,13 +9,13 @@ import { CrudComponent } from './views/crud/crud.component';
 import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'dashboard', component: DashboardComponent, data: { publicHeader: false, privateHeader: true} },
-  { path: 'galeria', component: GaleriaComponent },
-  { path: 'crud', component: CrudComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'home', component: HomeComponent, data: { publicHeader: true} },
+  { path: 'login', component: LoginComponent, data: { publicHeader: true} },
+  { path: 'about', component: AboutComponent, data: { publicHeader: true} },
+  { path: 'dashboard', component: DashboardComponent, data: { publicHeader: false}  },
+  { path: 'galeria', component: GaleriaComponent, data: { publicHeader: false}},
+  { path: 'crud', component: CrudComponent, data: { publicHeader: false} },
+  { path: 'profile', component: ProfileComponent, data: { publicHeader: false} },
   { path:'', pathMatch: 'full',  redirectTo:'/home' } 
 ];
 

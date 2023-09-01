@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, Subject, of } from 'rxjs';
 import { StorageService } from './storage.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/shared/model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,10 @@ export class AuthService {
 
   login(username: string, password: string) : Observable<boolean> {
     if (username === 'master@lemoncode.net' && password === '12345678') {
+      sessionStorage.setItem('logged', 'isLogged');
       return of(true)
     } else {
+      sessionStorage.setItem('logged', 'isNotlogged');
       return of(false);
     }
   }
@@ -27,7 +30,7 @@ export class AuthService {
 
   getUsername () : string {
     if (this.storageService.get('user')){
-      return this.storageService.get('user');
+      return this.storageService.get('user').username;
     }  else {
       return '';
     }
@@ -37,4 +40,10 @@ export class AuthService {
     this.storageService.removeItem('user');
     this.router.navigateByUrl('/login');
   }
+
+  private user = new Subject<User>();
+  public userEmitter = this.user.asObservable();
+  userEmitChange(user : User) {
+    this.user.next(user);
+  }; 
 }
