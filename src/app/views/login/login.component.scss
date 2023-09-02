@@ -21,8 +21,17 @@ main {
         width: 100%;
       }
       .btn {
+        display: flex;
         align-self: flex-end;
         margin-top: 40px;
+        .spinner{ 
+          margin-right: 25px;
+        }
+        .mat-mdc-progress-spinner {
+          --mdc-circular-progress-active-indicator-color: darkgoldenrod;
+          width: 45px !important;
+          height: 45px !important;
+        }
       }
     }
   } 

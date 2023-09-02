@@ -16,8 +16,11 @@
           <mat-label>Password</mat-label>
           <input matInput formControlName="password" />
         </mat-form-field>
-        <p *ngIf="!isLogged" class="error">{{ loginErr }}</p>
+        <p *ngIf="showError" class="error">{{ loginErr }}</p>
         <div class="btn">
+          <div *ngIf="spinner" class="spinner">
+            <mat-progress-spinner [mode]="mode"></mat-progress-spinner>
+          </div>
           <button mat-raised-button type="submit">Login</button>
         </div>
       </form>

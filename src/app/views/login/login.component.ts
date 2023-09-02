@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { User } from 'src/app/shared/model/user.model';
 import { StorageService } from 'src/app/core/services/storage.service';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,13 @@ export class LoginComponent {
 
   loginErr = '';
   isLogged = 'false';
+  showError = false;
   user? : User;
+
+  //spinner
+  color = 'darkgoldenrod';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  spinner = false;
 
   form = this.fb.group({
     name: ['', Validators.required],
@@ -35,17 +43,27 @@ export class LoginComponent {
       }
       this.storageService.set('user', this.user);
       this.isLogged = 'true';
+      this.spinner = true;
+      this.showError = false;
       this.authService.login(this.form.value.name, this.form.value.password).subscribe({
         next: (resp) => {
+          this.spinner = false;
           if (resp === true) {
             this.user ? this.authService.userEmitChange(this.user) : '';
             this.router.navigateByUrl('/dashboard')
           }
+        },
+        error: () => {
+          this.isLogged = 'false';
+          this.spinner = false;
+          this.loginErr = 'Usuario o contraseña inválidos';
         }
       });
     } else {
       this.isLogged = 'false';
-      this.loginErr = 'Usuario o contraseña inválidos'
+      this.showError = true;
+      this.spinner = false;
+      this.loginErr = 'Usuario o contraseña inválidos';
     }
   }
 }

@@ -19,7 +19,7 @@ import { PrivateHeaderComponent } from './layout/private-header/private-header.c
 import { GaleriaComponent } from './views/galeria/galeria.component';
 import { CrudComponent } from './views/crud/crud.component';
 import { ProfileComponent } from './views/profile/profile.component';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RotationDirective } from './shared/directives/rotation.directive';
 
@@ -47,6 +47,7 @@ import { RotationDirective } from './shared/directives/rotation.directive';
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

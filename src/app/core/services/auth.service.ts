@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, of } from 'rxjs';
+import { Observable, Subject, delay, of } from 'rxjs';
 import { StorageService } from './storage.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user.model';
@@ -17,10 +17,10 @@ export class AuthService {
   login(username: string, password: string) : Observable<boolean> {
     if (username === 'master@lemoncode.net' && password === '12345678') {
       sessionStorage.setItem('logged', 'isLogged');
-      return of(true)
+      return of(true).pipe( delay(2000));
     } else {
       sessionStorage.setItem('logged', 'isNotlogged');
-      return of(false);
+      return of(false).pipe( delay(2000));
     }
   }
   
