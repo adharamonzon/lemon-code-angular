@@ -21,6 +21,7 @@ import { CrudComponent } from './views/crud/crud.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { FooterComponent } from './layout/footer/footer.component';
+import { RotationDirective } from './shared/directives/rotation.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     GaleriaComponent,
     CrudComponent,
     ProfileComponent,
-    FooterComponent
+    FooterComponent,
+    RotationDirective
   ],
   imports: [
     BrowserModule,

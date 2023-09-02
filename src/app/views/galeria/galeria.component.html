@@ -2,7 +2,7 @@
   <!-- imagen seleccionada -->
   <h2 class="selectedImg--title">{{ selectedImg.title }}</h2>
   <div class="selectedImg--imgContainer" id="image">
-    <img class="selectedImg--imgContainer__img" [src]="selectedImg.url" alt="Imagen seleccionada" />
+    <img class="selectedImg--imgContainer__img" appRotation [src]="selectedImg.url" alt="Imagen seleccionada" />
   </div>
 </section>
 <nav class="galeryNav">
