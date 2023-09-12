@@ -1,13 +1,13 @@
 .footer {
-  width: 98.5vw;
-  height: 80px;
+  width: 100vw;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: darkgoldenrod;
   color: white;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   overflow-x: hidden;
 }

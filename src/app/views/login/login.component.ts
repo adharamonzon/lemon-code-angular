@@ -6,6 +6,8 @@ import { User } from 'src/app/shared/model/user.model';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { BehaviorSubject } from 'rxjs';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +19,11 @@ export class LoginComponent {
   constructor ( private fb : FormBuilder,
                 private router: Router,
                 private authService: AuthService,
-                private storageService: StorageService
+                private storageService: StorageService,    
+                private loginService : LoginService       
   ) {}
 
   loginErr = '';
-  isLogged = 'false';
   showError = false;
   user? : User;
 
@@ -42,25 +44,22 @@ export class LoginComponent {
         password : this.form.value.password
       }
       this.storageService.set('user', this.user);
-      this.isLogged = 'true';
       this.spinner = true;
       this.showError = false;
       this.authService.login(this.form.value.name, this.form.value.password).subscribe({
         next: (resp) => {
           this.spinner = false;
           if (resp === true) {
-            this.user ? this.authService.userEmitChange(this.user) : '';
+            this.loginService.isLoggedUser.next(true);
             this.router.navigateByUrl('/dashboard')
           }
         },
         error: () => {
-          this.isLogged = 'false';
           this.spinner = false;
           this.loginErr = 'Usuario o contraseña inválidos';
         }
       });
     } else {
-      this.isLogged = 'false';
       this.showError = true;
       this.spinner = false;
       this.loginErr = 'Usuario o contraseña inválidos';

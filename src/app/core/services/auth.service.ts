@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, delay, of } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, delay, of } from 'rxjs';
 import { StorageService } from './storage.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/model/user.model';
@@ -40,10 +40,5 @@ export class AuthService {
     this.storageService.removeItem('user');
     this.router.navigateByUrl('/login');
   }
-
-  private user = new Subject<User>();
-  public userEmitter = this.user.asObservable();
-  userEmitChange(user : User) {
-    this.user.next(user);
-  }; 
+  
 }

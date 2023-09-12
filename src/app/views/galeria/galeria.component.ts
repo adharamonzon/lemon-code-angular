@@ -12,50 +12,50 @@ export class GaleriaComponent  implements OnInit{
   imgList : Images[] = [
     {
       id: 1,
-      url: 'assets/images/image1.jpg',
+      url: 'assets/images/image1.jpeg',
       title: 'Puerto nublado',
       size: 500
     },
     {
       id: 2,
-      url: 'assets/images/image2.jpg',
-      title: 'Montaña nevada',
+      url: 'assets/images/image2.jpeg',
+      title: 'Montaña gran angular',
       size: 1
     },
     {
       id: 3,
-      url: 'assets/images/image3.jpg',
-      title: 'Lago en el bosque',
+      url: 'assets/images/image3.jpeg',
+      title: 'Amanecer',
       size: 500
     },
     {
       id: 4,
-      url: 'assets/images/image4.jpg',
-      title: 'Desierto',
+      url: 'assets/images/image4.jpeg',
+      title: 'Atardecer en el lago',
       size: 500
     },
     {
       id: 5,
-      url: 'assets/images/image5.jpg',
-      title: 'Bosque mágico',
+      url: 'assets/images/image5.jpeg',
+      title: 'Lago en otoño',
       size: 500
     },
     {
       id: 6,
-      url: 'assets/images/image6.jpg',
-      title: 'Embarcadero',
+      url: 'assets/images/image6.jpeg',
+      title: 'Cabaña en los alpes',
       size: 500
     },
     {
       id: 7,
-      url: 'assets/images/image7.jpg',
-      title: 'Nubes montañosas',
+      url: 'assets/images/image7.jpeg',
+      title: 'Playa',
       size: 500
     },
     {
       id: 8,
-      url: 'assets/images/image8.jpg',
-      title: 'Carretera',
+      url: 'assets/images/image8.jpeg',
+      title: 'Monta;as',
       size: 500
     }
   ]
@@ -66,7 +66,7 @@ export class GaleriaComponent  implements OnInit{
   ngOnInit(): void {
     this.selectedImg = {
       id: 1,
-      url: 'assets/images/image1.jpg',
+      url: 'assets/images/image1.jpeg',
       title: 'Puerto nublado',
       size: 500
     }

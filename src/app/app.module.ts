@@ -47,7 +47,7 @@ import { RotationDirective } from './shared/directives/rotation.directive';
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,30 +1,25 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { StorageService } from './core/services/storage.service';
 import { User } from './shared/model/user.model';
+import { AuthService } from './core/services/auth.service';
+import { LoginComponent } from './views/login/login.component';
+import { LoginService } from './core/services/login.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  publicHeader = true;
+  publicHeader = false;
   user? : User;
-  constructor( private storageService : StorageService) {
+    constructor( private loginService : LoginService) {
+    
+      this.loginService.isLoggedUser.subscribe({
+        next: (resp: boolean) => {
+          resp === true ? this.publicHeader = false : this.publicHeader = true
+          }
+      });
   }
-
-  ngOnInit(): void {
-      this.getUser()
-  }
-  getUser () {
-    this.user = this.storageService.get('user')
-    if (this.user) {
-      this.publicHeader = false;
-    } else {
-      this.publicHeader = true;
-
-    }
-  }
-  
 }
